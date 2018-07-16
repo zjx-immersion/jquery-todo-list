@@ -1,0 +1,11 @@
+{
+  "name": "jquery-todo-list",
+  "version": "1.0.0",
+  "description": "jquery todo list demo",
+  "main": "index.js",
+  "author": "zjx",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

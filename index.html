@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/todo.css">
+
+    <!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div>
+            <h2>Jquery To Do List</h2>
+            <p>
+                <em>Simple Todo List with adding and filter by diff status.</em>
+            </p>
+        </div>
+        <div>
+            <input type="text" name="ListItem" />
+            <div id="button">Add</div>
+        </div>
+        <br/>
+        <ol></ol>
+        <div>
+            <ul id="filters">
+                <li>
+                    <a href="#" data-filter="all">ALL</a>
+                </li>
+                <li>
+                    <a href="#" data-filter="active">Active</a>
+                </li>
+                <li>
+                    <a href="#" data-filter="complete">Complete</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/todo.js"></script>
+</body>
+
+</html>

@@ -95,6 +95,27 @@ $(document)
                 .hasClass('checked');
         });
 
+        $(document).on('dblclick', 'li', function () {
+            $(this)
+                .attr('contentEditable', 'true')
+                .focus()
+                .keypress(function (event) {
+                    var keycode = (event.keyCode
+                        ? event.keyCode
+                        : event.which);
+                    if (keycode == '13') {
+                        // when editing and press enter, take off contenteditable attr and set outline
+                        // none to take the focus off
+                        event
+                            .target
+                            .blur();
+                        $(this).attr('contenteditable', 'false');
+  
+                        todoList.find(element => element.id === $(this)[0].id).name = $(this).text();}
+                });
+
+            });
+
         $('input').focus(function () {
             $(this).val('');
         });;

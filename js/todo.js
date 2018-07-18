@@ -7,7 +7,7 @@ $(document)
             ? "checked"
             : ""}"><input name="done-todo" ${element.complete
                 ? 'checked'
-                : ""} type="checkbox" class="done-todo" /> ${element.name} </li>`
+                : ""} type="checkbox" class="done-todo" /><span> ${element.name}</span> </li>`
 
         function generateUUID() {
             /*jshint bitwise:false */
@@ -97,6 +97,7 @@ $(document)
 
         $(document).on('dblclick', 'li', function () {
             $(this)
+                .children('span')
                 .attr('contentEditable', 'true')
                 .focus()
                 .keypress(function (event) {
@@ -109,12 +110,18 @@ $(document)
                         event
                             .target
                             .blur();
-                        $(this).attr('contenteditable', 'false');
-  
-                        todoList.find(element => element.id === $(this)[0].id).name = $(this).text();}
+                        $(this)
+                            .children('span')
+                            .attr('contenteditable', 'false');
+
+                        todoList
+                            .find(element => element.id === $(this).parent()[0].id)
+                            .name = $(this).text();
+                        renderTodoList();
+                    }
                 });
 
-            });
+        });
 
         $('input').focus(function () {
             $(this).val('');
